@@ -3,9 +3,7 @@ package no.fint.model.resource;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public interface FintLinks {
     Map<String, List<Link>> getLinks();
@@ -25,5 +23,9 @@ public interface FintLinks {
 
     default void addLink(String key, Link link) {
         getLinks().computeIfAbsent(key, (k) -> new ArrayList<>()).add(link);
+    }
+
+    default Map<String, List<Link>> createLinks() {
+        return Collections.synchronizedMap(new LinkedHashMap<>());
     }
 }
