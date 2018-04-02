@@ -28,4 +28,6 @@ public interface FintLinks {
     default Map<String, List<Link>> createLinks() {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
+
+    default List<FintLinks> getNestedResources() { return Collections.emptyList(); }
 }
