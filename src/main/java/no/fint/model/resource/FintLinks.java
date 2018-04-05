@@ -1,6 +1,7 @@
 package no.fint.model.resource;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.util.*;
@@ -29,5 +30,6 @@ public interface FintLinks {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
 
+    @JsonIgnore
     default List<FintLinks> getNestedResources() { return new ArrayList<>(); }
 }
