@@ -29,5 +29,5 @@ public interface FintLinks {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
 
-    default List<FintLinks> getNestedResources() { return Collections.emptyList(); }
+    default List<FintLinks> getNestedResources() { return new ArrayList<>(); }
 }
