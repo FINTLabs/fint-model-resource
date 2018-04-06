@@ -33,5 +33,12 @@ public interface FintLinks {
     }
 
     @JsonIgnore
-    default List<FintLinks> getNestedResources() { return new ArrayList<>(); }
+    default List<FintLinks> getNestedResources() {
+        return new ArrayList<>();
+    }
+
+    @JsonIgnore
+    default List<Link> getSelfLinks() {
+        return getLinks().get("self");
+    }
 }
