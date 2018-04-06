@@ -5,10 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Link {
+public class Link implements Serializable {
     @Getter
     private String href;
 
