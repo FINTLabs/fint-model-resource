@@ -19,7 +19,7 @@ public interface FintLinks {
 
     @JsonSetter("_links")
     default void setLinks(Map<String, List<Link>> links) {
-        getLinks().putAll(links);
+        if (getLinks() != null) { getLinks().putAll(links); }
     }
 
     default void addLink(String key, Link link) {
