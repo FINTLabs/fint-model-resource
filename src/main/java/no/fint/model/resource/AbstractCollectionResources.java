@@ -1,0 +1,53 @@
+package no.fint.model.resource;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
+public abstract class AbstractCollectionResources<T> implements FintLinks {
+    @JsonProperty("_embedded")
+    private EmbeddedResources<T> embedded = new EmbeddedResources<>();
+
+    @Getter
+    protected final Map<String, List<Link>> links = createLinks();
+
+    public void addSelf(Link link) {
+        addLink("self", link);
+    }
+
+    @JsonProperty("total_items")
+    public int getTotalItems() {
+        return embedded.entries.size();
+    }
+
+    @JsonIgnore
+    public List<Link> getSelfLinks() {
+        return links.get("self");
+    }
+
+    @JsonIgnore
+    public List<T> getContent() {
+        return new ObjectMapper().convertValue(embedded.entries, getTypeReference());
+    }
+
+    @JsonIgnore
+    public abstract TypeReference<List<T>> getTypeReference();
+
+    @Data
+    @NoArgsConstructor
+    public static class EmbeddedResources<T> {
+        @JsonProperty("_entries")
+        private List<T> entries = new ArrayList<>();
+    }
+}
