@@ -23,7 +23,10 @@ public class Link implements Serializable {
     }
 
     public static Link with(Class<?> placeholderClass, String path) {
-        String placeholder = placeholderClass.getSimpleName().replaceFirst("Resource$", "").toLowerCase();
+        String placeholder = placeholderClass.getName()
+                .replace("no.fint.model.", "")
+                .replaceFirst("Resource$", "")
+                .toLowerCase();
         path = path.replaceFirst("^/", "");
         return new Link(String.format("${%s}/%s", placeholder, path));
     }

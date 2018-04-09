@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,20 +16,21 @@ import java.util.Map;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public abstract class AbstractCollectionResources<T> implements FintLinks {
+public abstract class AbstractCollectionResources<T> {
     @JsonProperty("_embedded")
-    private EmbeddedResources<T> embedded = new EmbeddedResources<>();
+    protected EmbeddedResources<T> embedded = new EmbeddedResources<>();
 
     @Getter
-    protected final Map<String, List<Link>> links = createLinks();
-
-    public void addSelf(Link link) {
-        addLink("self", link);
-    }
+    @JsonProperty("_links")
+    protected final Map<String, List<Link>> links = new LinkedHashMap<>();
 
     @JsonProperty("total_items")
     public int getTotalItems() {
         return embedded.entries.size();
+    }
+
+    public void addResource(T resource) {
+        embedded.entries.add(resource);
     }
 
     @JsonIgnore
@@ -48,6 +50,6 @@ public abstract class AbstractCollectionResources<T> implements FintLinks {
     @NoArgsConstructor
     public static class EmbeddedResources<T> {
         @JsonProperty("_entries")
-        private List<T> entries = new ArrayList<>();
+        public List<T> entries = new ArrayList<>();
     }
 }

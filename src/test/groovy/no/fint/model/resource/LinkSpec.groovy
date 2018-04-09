@@ -10,6 +10,6 @@ class LinkSpec extends Specification {
         def link = Link.with(PersonResource, '/id')
 
         then:
-        link.href == '${person}/id'
+        link.href == '${resource.testutils.person}/id'
     }
 }
