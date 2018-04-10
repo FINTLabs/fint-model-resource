@@ -30,7 +30,7 @@ public class Link implements Serializable {
 
     public static String getHrefPlaceholder(Class<?> placeholderClass) {
         return placeholderClass.getName()
-                .replace("no.fint.model.", "")
+                .replaceFirst("^no\\.fint\\.model(\\.resource)?\\.", "")
                 .replaceFirst("Resource$", "")
                 .toLowerCase();
     }
