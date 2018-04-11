@@ -22,6 +22,10 @@ public class Link implements Serializable {
         return new Link(verdi);
     }
 
+    public static Link with(Class<?> placeholderClass, String... pathElements) {
+        return with(placeholderClass, String.join("/", pathElements));
+    }
+
     public static Link with(Class<?> placeholderClass, String path) {
         String placeholder = Link.getHrefPlaceholder(placeholderClass);
         path = path.replaceFirst("^/", "");
