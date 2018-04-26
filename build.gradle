@@ -29,6 +29,7 @@ apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.3.0
 dependencies {
     compile('com.fasterxml.jackson.core:jackson-databind:2.9.4')
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }
