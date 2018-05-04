@@ -22,4 +22,16 @@ class LinkSpec extends Specification {
         then:
         link.href == '${testutils.person}/id'
     }
+
+    def "Two links with same href are considered equal"() {
+        when:
+        def link1 = Link.with(Person, 'id', '123')
+        def link2 = Link.with(Person, 'id', '123')
+
+        then:
+
+        link1.equals(link2)
+        link2.equals(link1)
+        link1.hashCode() == link2.hashCode()
+    }
 }
