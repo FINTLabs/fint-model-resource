@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -40,10 +39,10 @@ public abstract class AbstractCollectionResources<T> {
 
     @JsonIgnore
     public List<T> getContent() {
-        return new ObjectMapper().convertValue(embedded.entries, getTypeReference());
+        return embedded.entries;
     }
 
-    @JsonIgnore
+    @Deprecated
     public abstract TypeReference<List<T>> getTypeReference();
 
     @Data

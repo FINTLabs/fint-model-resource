@@ -28,6 +28,8 @@ public interface FintLinks {
         getLinks().computeIfAbsent(key, (k) -> new ArrayList<>()).add(link);
     }
 
+    default void addSelf(Link link) { addLink("self", link); }
+
     default Map<String, List<Link>> createLinks() {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
