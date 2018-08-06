@@ -6,16 +6,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 public abstract class AbstractCollectionResources<T> {
+    public AbstractCollectionResources(Collection<T> input) {
+        this();
+        embedded.entries.addAll(input);
+    }
+
     @JsonProperty("_embedded")
     protected EmbeddedResources<T> embedded = new EmbeddedResources<>();
 
