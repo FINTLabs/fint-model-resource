@@ -34,6 +34,14 @@ public abstract class AbstractCollectionResources<T> {
         embedded.entries.add(resource);
     }
 
+    public void addLink(String key, Link link) {
+        getLinks().computeIfAbsent(key, (k) -> new ArrayList<>()).add(link);
+    }
+
+    protected void addSelf(Link link) {
+        addLink("self", link);
+    }
+
     @JsonIgnore
     public List<Link> getSelfLinks() {
         return links.get("self");
@@ -45,6 +53,7 @@ public abstract class AbstractCollectionResources<T> {
     }
 
     @Deprecated
+    @JsonIgnore
     public abstract TypeReference<List<T>> getTypeReference();
 
     @Data

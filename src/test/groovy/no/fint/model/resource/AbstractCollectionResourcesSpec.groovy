@@ -12,11 +12,17 @@ class AbstractCollectionResourcesSpec extends Specification {
         personResources = new PersonResources()
         personResources.addResource(new PersonResource('test1'))
         personResources.addResource(new PersonResource('test2'))
+        personResources.addSelf(Link.with('/path/to/something'))
     }
 
     def "Get total_items"() {
         expect:
         personResources.totalItems == 2
+    }
+
+    def "Get self link"() {
+        expect:
+        personResources.getSelfLinks().any { it -> it.href == '/path/to/something' }
     }
 
     def "Serialize and deserialize PersonResources and get content"() {
@@ -25,6 +31,7 @@ class AbstractCollectionResourcesSpec extends Specification {
 
         when:
         def serialized = objectMapper.writeValueAsString(personResources)
+        println(serialized)
         def deserialized = objectMapper.readValue(serialized, PersonResources)
         def personResources = deserialized.getContent()
 
