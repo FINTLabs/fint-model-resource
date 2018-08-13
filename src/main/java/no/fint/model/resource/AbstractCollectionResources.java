@@ -13,7 +13,7 @@ import java.util.*;
 @EqualsAndHashCode
 @ToString
 public abstract class AbstractCollectionResources<T> {
-    public AbstractCollectionResources(Collection<T> input) {
+    protected AbstractCollectionResources(Collection<T> input) {
         this();
         embedded.entries.addAll(input);
     }
@@ -34,11 +34,11 @@ public abstract class AbstractCollectionResources<T> {
         embedded.entries.add(resource);
     }
 
-    public void addLink(String key, Link link) {
+    protected void addLink(String key, Link link) {
         getLinks().computeIfAbsent(key, (k) -> new ArrayList<>()).add(link);
     }
 
-    protected void addSelf(Link link) {
+    public void addSelf(Link link) {
         addLink("self", link);
     }
 
