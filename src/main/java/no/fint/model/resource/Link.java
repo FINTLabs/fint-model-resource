@@ -3,6 +3,7 @@ package no.fint.model.resource;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,6 +36,10 @@ public class Link implements Serializable {
                 .replaceFirst("^no\\.fint\\.model(\\.resource)?\\.", "")
                 .replaceFirst("Resource$", "")
                 .toLowerCase();
+    }
+
+    public static Function<String,Link> apply(Class<?> placeholderClass, String field) {
+        return id -> with(placeholderClass, field, id);
     }
 }
 

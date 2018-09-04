@@ -34,4 +34,17 @@ class LinkSpec extends Specification {
         link2.equals(link1)
         link1.hashCode() == link2.hashCode()
     }
+
+    def "Use partial application for creating links"() {
+        given:
+        def fn = Link.apply(Person, 'id')
+        def l1 = Link.with(Person, 'id', '123')
+
+        when:
+        def l2 = fn.apply('123')
+
+        then:
+        l1.equals(l2)
+        l2.equals(l1)
+    }
 }
