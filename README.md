@@ -19,7 +19,10 @@ interface contains `addLink(String, Link)` that can be used as well.
 Links are URIs, typically https URIs.  The `Link` class has a static `Link.with(String)` that can be used if the full URI to the
 target is known.
 
-But FINT APIs also support convenience methods that enables implementors to generate links when the target Java class is known.
+## Robust links
+
+Full https URIs are sensitive to changes in the FINT API deployment configuration.  To ensure that links are robust,
+the FINT APIs also support convenience methods that enables implementors to generate links when the target Java class is known.
 In these cases the methods `Link.with(Link, String...)` or `Link.with(Class, String)` come in handy.  The first argument is the
 Java class of the target resource, so to link to a `Person` you use `Link.with(Person.class, ...)`.
 
