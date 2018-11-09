@@ -24,6 +24,10 @@ public class Link implements Serializable {
     public static Link with(Class<?> placeholderClass, String... pathElements) {
         return with(placeholderClass, String.join("/", pathElements));
     }
+    
+    public static Link with(Class<?> placeholderClass, String fieldName, String fieldValue) {
+        return with(placeholderClass, fieldName + "/" + fieldValue);
+    }
 
     public static Link with(Class<?> placeholderClass, String path) {
         String placeholder = Link.getHrefPlaceholder(placeholderClass);
