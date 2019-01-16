@@ -7,7 +7,6 @@ import java.util.function.Function;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @EqualsAndHashCode
 public class Link implements Serializable {
     @Getter
@@ -44,6 +43,11 @@ public class Link implements Serializable {
 
     public static Function<String,Link> apply(Class<?> placeholderClass, String field) {
         return id -> with(placeholderClass, field, id);
+    }
+
+    @Override
+    public String toString() {
+        return href;
     }
 }
 
