@@ -1,8 +1,6 @@
 package no.fint.model.resource;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.*;
 
@@ -25,9 +23,17 @@ public abstract class AbstractCollectionResources<T> {
     @JsonProperty("_links")
     protected final Map<String, List<Link>> links = new LinkedHashMap<>();
 
-    @JsonProperty("total_items")
+    private int totalItems;
+
+    @JsonSetter("total_items")
+    public void setTotalItems(int totalItems) {
+        this.totalItems = totalItems;
+    }
+
+    @JsonGetter("total_items")
     public int getTotalItems() {
-        return embedded.entries.size();
+        totalItems = Math.max(embedded.entries.size(), totalItems);
+        return totalItems;
     }
 
     public void addResource(T resource) {
@@ -40,6 +46,14 @@ public abstract class AbstractCollectionResources<T> {
 
     public void addSelf(Link link) {
         addLink("self", link);
+    }
+
+    public void addNext(Link link) {
+        addLink("next", link);
+    }
+
+    public void addPrev(Link link) {
+        addLink("prev", link);
     }
 
     @JsonIgnore

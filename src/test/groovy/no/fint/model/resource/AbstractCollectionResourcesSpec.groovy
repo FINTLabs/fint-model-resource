@@ -36,7 +36,26 @@ class AbstractCollectionResourcesSpec extends Specification {
         def personResources = deserialized.getContent()
 
         then:
+        deserialized.totalItems == 2
         personResources.size() == 2
         personResources.collect { it.name }.containsAll(['test1', 'test2'])
+    }
+
+    def 'Total items is retained if larger than collection size'() {
+        given:
+        def objectMapper = new ObjectMapper()
+
+        when:
+        personResources.totalItems = 42
+        def serialized = objectMapper.writeValueAsString(personResources)
+        println(serialized)
+        def deserialized = objectMapper.readValue(serialized, PersonResources)
+        def personResources = deserialized.getContent()
+
+        then:
+        deserialized.totalItems == 42
+        personResources.size() == 2
+        personResources.collect { it.name }.containsAll(['test1', 'test2'])
+
     }
 }
