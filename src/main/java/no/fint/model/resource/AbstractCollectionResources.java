@@ -36,6 +36,16 @@ public abstract class AbstractCollectionResources<T> {
         return totalItems;
     }
 
+    @JsonGetter("size")
+    public int getSize() {
+        return embedded.entries.size();
+    }
+
+    @Setter
+    @Getter
+    @JsonProperty("offset")
+    private int offset;
+
     public void addResource(T resource) {
         embedded.entries.add(resource);
     }
