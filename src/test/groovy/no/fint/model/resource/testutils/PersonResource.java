@@ -14,8 +14,11 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonResource implements FintLinks {
-    @Getter
-    private final Map<String, List<Link>> links = createLinks();
+
+    @Override
+    public Map<String, List<Link>> getLinks() {
+        return createLinks();
+    }
 
     private String name;
 }
