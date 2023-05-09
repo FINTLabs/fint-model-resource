@@ -1,8 +1,8 @@
 package no.fint.model.resource.testutils;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import lombok.*;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 
@@ -10,9 +10,18 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class PersonResource implements FintLinks {
+
+    private String name;
+
+    // Default constructor
+    public PersonResource() {
+    }
+
+    public PersonResource(String name) {
+        this.name = name;
+    }
 
     private Map<String, List<Link>> links = createLinks();
 
@@ -21,5 +30,5 @@ public class PersonResource implements FintLinks {
         return links;
     }
 
-    private String name;
+
 }
