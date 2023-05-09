@@ -2,11 +2,10 @@ package no.fint.model.resource.testutils;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import no.fint.model.resource.FintCoreLinks;
+import no.fint.model.resource.optimized.FintCoreLinks;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

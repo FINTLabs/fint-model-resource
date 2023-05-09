@@ -1,39 +1,40 @@
-package no.fint.model.resource;
+package no.fint.model.resource.optimized;
 
+
+import no.fint.model.resource.Link;
 
 import java.util.*;
 
 public class FintCoreLinks {
 
-    private final Map<String, List<Link>> links;
+    private LinkContainer linkContainer;
 
-    public FintCoreLinks() {
-        this.links = createLinks();
+    public FintCoreLinks()  {
+         linkContainer = new NativeLinkContainer(createLinks());
     }
 
     public Map<String, List<Link>> getLinks() {
-        return links;
+        return linkContainer.getLinks();
     }
 
     public Map<String, List<Link>> getLinksIfPresent() {
-        if (links.isEmpty()) {
+        if (linkContainer.getLinks().isEmpty()) {
             return null;
         }
-        return links;
+        return linkContainer.getLinks();
     }
 
     public void setLinks(Map<String, List<Link>> links) {
         if (links != null) {
-            this.links.putAll(links);
+            linkContainer.setLinks(links);
         }
     }
 
     public void addLink(String key, Link link) {
-        links.computeIfAbsent(key, (k) -> new ArrayList<>()).add(link);
+        linkContainer.addLink(key, link);
     }
 
     public Map<String, List<Link>> createLinks() {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
-
 }
