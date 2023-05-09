@@ -1,5 +1,6 @@
 package no.fint.model.resource
 
+
 import com.fasterxml.jackson.databind.ObjectMapper
 import no.fint.model.resource.testutils.PersonResource
 import no.fint.model.resource.testutils.PersonResources
