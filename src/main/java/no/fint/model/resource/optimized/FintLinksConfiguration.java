@@ -20,14 +20,26 @@ public class FintLinksConfiguration {
         String urlPrefix = link.getHref().substring(0, index);
         String urlSuffixId = link.getHref().substring(index);
 
-        if (prefixes.containsValue(urlPrefix)){
+        if (prefixes.containsValue(urlPrefix)) {
             Integer key = getKey(prefixes, urlPrefix);
             return new OptimizedLink(key.intValue(), urlSuffixId);
         } else {
             int key = prefixes.size();
-            prefixes.put(new Integer(key), urlPrefix);
+            prefixes.put(key, urlPrefix);
             return new OptimizedLink(key, urlSuffixId);
         }
+    }
+
+    public Link getLink(OptimizedLink optimizedLink) {
+        if (optimizedLink == null) return null;
+
+        long fintLinksConfigurationId = optimizedLink.getFintLinksConfigurationId();
+        String urlSuffixId = optimizedLink.getUrlSuffixId();
+        String href = fintLinksConfigurationId < 0 ? urlSuffixId : prefixes.getOrDefault(fintLinksConfigurationId, "") + urlSuffixId;
+
+        Link link = new Link();
+        link.setVerdi(href);
+        return link;
     }
 
     private int splitUrl(String href) {
