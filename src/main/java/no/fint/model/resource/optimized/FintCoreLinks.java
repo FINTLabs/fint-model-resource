@@ -38,7 +38,7 @@ public class FintCoreLinks {
         return Collections.synchronizedMap(new LinkedHashMap<>());
     }
 
-    public void Optimize() {
+    public void optimize() {
         var nativeLinks = linkContainer.getLinks();
         var configuration = new FintLinksConfiguration();
         linkContainer = new OptimizedLinkContainer(nativeLinks, configuration);
