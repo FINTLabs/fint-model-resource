@@ -1,10 +1,12 @@
 package no.fint.model.resource.optimized;
 
+import lombok.extern.slf4j.Slf4j;
 import no.fint.model.resource.Link;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class OptimizedLinkContainer implements LinkContainer {
 
     private final FintLinksConfiguration fintLinksConfiguration;

@@ -8,21 +8,17 @@ plugins {
 }
 
 group = 'no.fintlabs'
-version = '0.0.1-SNAPSHOT'
+version = '0-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-    mavenCentral()
+    mavenLocal()
     repositories {
         maven {
             url "https://repo.fintlabs.no/releases"
         }
     }
-    mavenLocal()
-}
-
-jar {
-    enabled = false
+    mavenCentral()
 }
 
 dependencies {
@@ -32,6 +28,17 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.26'
 
     testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
 
 //jacocoTestReport {

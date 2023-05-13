@@ -1,5 +1,6 @@
 package no.fint.model.resource.optimized;
 
+import lombok.Getter;
 import no.fint.model.resource.Link;
 
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 public class FintLinksConfiguration {
 
+    @Getter
     private final Map<Integer, String> prefixes;
 
     public FintLinksConfiguration() {
@@ -14,9 +16,14 @@ public class FintLinksConfiguration {
     }
 
     public OptimizedLink addLink(Link link) {
-        if (link == null) return null;
+        if (link == null || link.getHref() == null || link.getHref().isEmpty()) {
+            return null;
+        }
 
         int index = splitUrl(link.getHref());
+        if (index == -1){
+            return new OptimizedLink(-1, link.getHref());
+        }
         String urlPrefix = link.getHref().substring(0, index);
         String urlSuffixId = link.getHref().substring(index);
 
