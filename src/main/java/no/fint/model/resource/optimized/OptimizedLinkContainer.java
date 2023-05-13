@@ -6,7 +6,6 @@ import no.fint.model.resource.Link;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Slf4j
 public class OptimizedLinkContainer implements LinkContainer {
 
     private final FintLinksConfiguration fintLinksConfiguration;
