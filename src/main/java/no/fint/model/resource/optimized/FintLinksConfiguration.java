@@ -53,7 +53,7 @@ public class FintLinksConfiguration {
         if (href == null || href.equals("")) return -1;
         if (!href.startsWith("https://")) return -1;
         if (!href.contains("felleskomponent.no")) return -1;
-        return findNthOccurrence(href, '/', 7);
+        return findNthOccurrence(href, '/', 7) + 1;
     }
 
     public int findNthOccurrence(String str, char c, int n) {
