@@ -1,8 +1,5 @@
 # fint-model-resource
 
-[![Build Status](https://jenkins.fintlabs.no/buildStatus/icon?job=FINTmodels/fint-model-resource/master)](https://jenkins.fintlabs.no/job/FINTmodels/fint-model-resource/master)
-[ ![Download](https://api.bintray.com/packages/fint/maven/fint-model-resource/images/download.svg) ](https://bintray.com/fint/maven/fint-model-resource/_latestVersion)
-
 FINT Resource Model contains the core classes for FINT data models containing HATEOAS relations.
 
 ## Usage
