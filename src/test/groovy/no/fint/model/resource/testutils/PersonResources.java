@@ -13,9 +13,10 @@ public class PersonResources extends AbstractCollectionResources<PersonResource>
         super(input);
     }
 
+    @Deprecated
     @Override
     public TypeReference<List<PersonResource>> getTypeReference() {
-        return new TypeReference<List<PersonResource>>() {
+        return new TypeReference<>() {
         };
     }
 }
