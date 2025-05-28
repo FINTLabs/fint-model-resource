@@ -1,6 +1,6 @@
-package no.fint.model.resource
+package no.novari.model.resource
 
-import no.fint.model.resource.testutils.PersonResource
+import no.novari.model.resource.testutils.PersonResource
 import spock.lang.Specification
 
 class FintLinksSpec extends Specification {

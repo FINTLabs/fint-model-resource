@@ -1,8 +1,8 @@
-package no.fint.model.resource
+package no.novari.model.resource
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import no.fint.model.resource.testutils.PersonResource
-import no.fint.model.resource.testutils.PersonResources
+import no.novari.model.resource.testutils.PersonResource
+import no.novari.model.resource.testutils.PersonResources
 import spock.lang.Specification
 
 class AbstractCollectionResourcesSpec extends Specification {

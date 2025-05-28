@@ -1,8 +1,8 @@
-package no.fint.model.resource.testutils;
+package no.novari.model.resource.testutils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.NoArgsConstructor;
-import no.fint.model.resource.AbstractCollectionResources;
+import no.novari.model.resource.AbstractCollectionResources;
 
 import java.util.Collection;
 import java.util.List;

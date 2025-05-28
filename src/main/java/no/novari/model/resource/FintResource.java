@@ -1,4 +1,4 @@
-package no.fint.model.resource;
+package no.novari.model.resource;
 
 import no.fint.model.FintMainObject;
 

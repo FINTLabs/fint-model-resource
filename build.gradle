@@ -18,6 +18,8 @@ java {
     }
 }
 
+project.group = 'no.novari'
+
 repositories {
     mavenLocal()
     maven {
