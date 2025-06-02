@@ -1,6 +1,6 @@
 package no.novari.model.resource;
 
-import no.fint.model.FintMainObject;
+import no.novari.model.FintMainObject;
 
 public interface FintResource extends FintLinks, FintMainObject {
 }
