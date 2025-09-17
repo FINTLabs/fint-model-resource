@@ -1,4 +1,4 @@
-package no.novari.model.resource;
+package no.novari.fint.model.resource;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.type.TypeReference;

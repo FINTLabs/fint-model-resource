@@ -1,11 +1,11 @@
-package no.novari.model.resource.testutils;
+package no.novari.fint.model.resource.testutils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import no.novari.model.resource.FintLinks;
-import no.novari.model.resource.Link;
+import no.novari.fint.model.resource.FintLinks;
+import no.novari.fint.model.resource.Link;
 
 import java.util.List;
 import java.util.Map;

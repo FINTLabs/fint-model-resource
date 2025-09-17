@@ -1,8 +1,8 @@
-package no.novari.model
+package no.novari.fint.model
 
-import no.novari.model.resource.Link
-import no.novari.model.resource.testutils.PersonResource
-import no.novari.model.testutils.Person
+import no.novari.fint.model.resource.Link
+import no.novari.fint.model.resource.testutils.PersonResource
+import no.novari.fint.model.testutils.Person
 import spock.lang.Specification
 
 class LinkSpec extends Specification {

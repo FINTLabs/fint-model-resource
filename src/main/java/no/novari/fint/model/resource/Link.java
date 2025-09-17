@@ -1,4 +1,4 @@
-package no.novari.model.resource;
+package no.novari.fint.model.resource;
 
 import lombok.*;
 
