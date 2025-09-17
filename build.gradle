@@ -20,6 +20,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.release = 8
+}
+
 project.group = 'no.novari'
 
 repositories {
@@ -31,13 +35,13 @@ repositories {
 }
 
 dependencies {
-    implementation('no.novari:fint-model-core:1.0.0-rc-1')
-    implementation('com.fasterxml.jackson.core:jackson-databind:2.19.0')
+    implementation('no.novari:fint-model-core:1.0.0-rc-2')
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.20.0')
     
-    compileOnly("org.projectlombok:lombok:1.18.38")
-    testCompileOnly("org.projectlombok:lombok:1.18.38")
-    annotationProcessor("org.projectlombok:lombok:1.18.38")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+    compileOnly("org.projectlombok:lombok:1.18.40")
+    testCompileOnly("org.projectlombok:lombok:1.18.40")
+    annotationProcessor("org.projectlombok:lombok:1.18.40")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.40")
 
     testImplementation("org.spockframework:spock-core:2.4-M6-groovy-4.0")
 }
