@@ -16,6 +16,7 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
+    withSourcesJar()
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -28,7 +29,7 @@ project.group = 'no.novari'
 repositories {
     mavenLocal()
     maven {
-        url 'https://repo.fintlabs.no/releases'
+        url = 'https://repo.fintlabs.no/releases'
     }
     mavenCentral()
 }
@@ -43,6 +44,11 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.40")
 
     testImplementation("org.spockframework:spock-core:2.4-M6-groovy-4.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+test {
+    useJUnitPlatform()
 }
 
 jacocoTestReport {
@@ -54,7 +60,7 @@ jacocoTestReport {
 publishing {
     repositories {
         maven {
-            url "https://repo.fintlabs.no/releases"
+            url = "https://repo.fintlabs.no/releases"
             credentials {
                 username = System.getenv("REPOSILITE_USERNAME")
                 password = System.getenv("REPOSILITE_PASSWORD")
