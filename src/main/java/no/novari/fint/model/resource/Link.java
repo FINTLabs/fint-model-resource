@@ -1,4 +1,4 @@
-package no.fint.model.resource;
+package no.novari.fint.model.resource;
 
 import lombok.*;
 
@@ -36,7 +36,7 @@ public class Link implements Serializable {
 
     public static String getHrefPlaceholder(Class<?> placeholderClass) {
         return placeholderClass.getName()
-                .replaceFirst("^no\\.fint\\.model(\\.resource)?\\.", "")
+                .replaceFirst("^no\\.novari\\.fint\\.model(\\.resource)?\\.", "")
                 .replaceFirst("Resource$", "")
                 .toLowerCase();
     }
