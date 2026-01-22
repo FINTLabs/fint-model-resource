@@ -35,7 +35,7 @@ repositories {
 
 dependencies {
     implementation('no.novari:fint-model-core:1.0.0')
-    implementation('com.fasterxml.jackson.core:jackson-databind:2.20.1')
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.21.0')
     
     compileOnly("org.projectlombok:lombok:1.18.42")
     testCompileOnly("org.projectlombok:lombok:1.18.42")
