@@ -37,10 +37,10 @@ dependencies {
     implementation('no.novari:fint-model-core:1.0.0')
     implementation('com.fasterxml.jackson.core:jackson-databind:2.20.1')
     
-    compileOnly("org.projectlombok:lombok:1.18.42")
-    testCompileOnly("org.projectlombok:lombok:1.18.42")
-    annotationProcessor("org.projectlombok:lombok:1.18.42")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
+    compileOnly("org.projectlombok:lombok:1.18.46")
+    testCompileOnly("org.projectlombok:lombok:1.18.46")
+    annotationProcessor("org.projectlombok:lombok:1.18.46")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.46")
 
     testImplementation("org.spockframework:spock-core:2.4-M6-groovy-4.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
