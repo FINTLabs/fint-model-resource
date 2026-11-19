@@ -17,7 +17,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v6
         with:
-          java-version: '21.0.13.1+2'
+          java-version: '21'
+          check-latest: true
           distribution: 'temurin'
           cache: 'gradle'
 
